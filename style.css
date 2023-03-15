@@ -57,6 +57,11 @@ input {
 }
 
 
-/* .hidden * {
+.hidden * {
     visibility: hidden;
+}
+
+/* 
+.correct {
+    background: green;
 } */

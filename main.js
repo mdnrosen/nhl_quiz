@@ -8,8 +8,8 @@ async function getTeams(){
     const refined = data.teams.map(t => {
         return {
             fullName: t.name,
-            city: t.locationName,
-            nickname: t.teamName,
+            city: t.locationName.toLowerCase(),
+            nickname: t.teamName.toLowerCase(),
             abbr: t.abbreviation,
             logo: getLogo(t.abbreviation, t.name)
         }
@@ -74,8 +74,15 @@ function getLogo(abbrv, name){
 
 
 
-    input.addEventListener('change', (e) => {
-
+    input.addEventListener('keyup', (e) => {
+        const match = teams.find(team => team.nickname === e.target.value.toLowerCase())
+        if (match) {
+            const cell = document.querySelector(`.${match.abbr}`)
+            cell.classList.remove('hidden')
+            cell.classList.add('correct')
+            input.value = ''
+        }
+        
     })
 
 })()
