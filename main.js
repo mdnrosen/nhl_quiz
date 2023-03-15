@@ -21,13 +21,9 @@ async function getTeams(){
 function getLogo(abbrv, name){
     let imgStr = ''
     if (abbrv === 'MTL') {
-        console.log('MONTREAL!!!!')
         imgStr = 'montreal-canadiens'
-        console.log(imgStr)
     } else if (abbrv === 'STL') {
-        console.log('ST LOUIS')
         imgStr = 'st-louis-blues'
-        console.log(imgStr)
     } else {
         imgStr = name.toLowerCase().split(' ').join('-')
 
