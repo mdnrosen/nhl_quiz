@@ -1,6 +1,6 @@
-console.log('hello');
+console.log('No, I didn\'t log the answers here, but if you\'re really that stuck, go inspect the elements');
 let teams
-
+let guessed = []
 
 async function getTeams(){
     const response = await fetch('https://statsapi.web.nhl.com/api/v1/teams')
@@ -11,6 +11,7 @@ async function getTeams(){
             city: t.locationName.toLowerCase(),
             nickname: t.teamName.toLowerCase(),
             abbr: t.abbreviation,
+            id: t.id,
             logo: getLogo(t.abbreviation, t.name)
         }
     })
@@ -50,7 +51,7 @@ function getLogo(abbrv, name){
 
         // 1. Create wrapper for team
         const cell = document.createElement('div')
-        cell.setAttribute('class', `cell hidden ${t.abbr}`)
+        cell.setAttribute('class', `cell hidden t${t.id}`)
 
 
         // 2. Create space for logo
@@ -77,10 +78,20 @@ function getLogo(abbrv, name){
     input.addEventListener('keyup', (e) => {
         const match = teams.find(team => team.nickname === e.target.value.toLowerCase())
         if (match) {
-            const cell = document.querySelector(`.${match.abbr}`)
+            // if it's already guessed, ignore it
+            if (guessed.includes(match.nickname)) return
+
+            const cell = document.querySelector(`.t${match.id}`)
             cell.classList.remove('hidden')
-            cell.classList.add('correct')
+            cell.classList.add('correct') // this will do a flashy green thing
             input.value = ''
+            guessed.push(match.nickname) // adds to list to enable above check
+
+            if (guessed.length === 32) {
+                window.alert('You win!')
+                input.disabled = true
+                input.removeEventListener('keyup')
+            }
         }
         
     })

@@ -61,7 +61,19 @@ input {
     visibility: hidden;
 }
 
-/* 
+
+@keyframes flash {
+    0% {
+        background-color: rgba(0,128,0,0.5);
+    }
+
+    100% {
+        background-color: rgba(0,128,0,0);
+    }
+}
+    
 .correct {
-    background: green;
-} */
+    animation-name: flash;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+}    
