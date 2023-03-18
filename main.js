@@ -43,7 +43,8 @@ function getLogo(abbrv, name){
 (async () => {
     const main = document.querySelector('main')
     const input = document.querySelector('input')
-
+    const counter = document.querySelector('.counter')
+    counter.innerText = `${guessed.length}/32`
     // once fired, `teams` variable is globally available
     await getTeams()
     
@@ -86,11 +87,13 @@ function getLogo(abbrv, name){
             cell.classList.add('correct') // this will do a flashy green thing
             input.value = ''
             guessed.push(match.nickname) // adds to list to enable above check
+            counter.innerText = `${guessed.length} / 32`
+
 
             if (guessed.length === 32) {
-                window.alert('You win!')
                 input.disabled = true
                 input.removeEventListener('keyup')
+                window.alert('You win!')
             }
         }
         

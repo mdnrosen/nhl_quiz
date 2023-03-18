@@ -6,7 +6,7 @@ body {
 header {
     height: 10vh;
     text-align: center;
-    margin: 2rem;
+    margin: 1rem;
     
 
 }
@@ -34,7 +34,7 @@ input {
 }
 
 .cell {
-    height: 3.5rem;
+    height: 3rem;
     padding: 0.5rem;
     width: 300px;
     margin: 0.25rem;
