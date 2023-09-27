@@ -1,28 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NHL Teams</title>
-    <script src="./main.js" defer></script>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <header class="fcc">
-        <h4>Guess all the NHL teams</h4>
-    </header>
-    <section class="inputWrapper">
-        <input type="text" placeholder="Halifax Mooseheads..."/>
-        <p class="counter "style="margin-left: 1em;">0 / 32</p>
-    </section>
-    <main>
-        <div class="cell number1"></div>
-        <div class="cell number2"></div>
-        <div class="cell number3"></div>
-        <div class="cell number4"></div>
-        <div class="cell number5"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.avif">
+        <meta name=“author” content=“SPOV”>
+        <title>Logo Test</title>
+    </head>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0; 
+        }
 
-    </main>
-</body>
+        body {
+            background: #000;
+        }
+        main {
+            width: 600px;
+            height: auto;
+            -webkit-animation: fadein 2s;
+            -moz-animation: fadein 2s;
+            -ms-animation: fadein 2s;
+            -o-animation: fadein 2s;
+            animation: fadein 2s;
+        }
+        .centered {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media only screen and (max-width: 48em) {
+            main {
+                width: 15em;
+                height: 15em;
+            }
+        }
+        @media only screen and (min-width: 48em) {
+            main {
+                width: 20em;
+                height: 20em;
+            }
+        }
+        @media only screen and (min-width: 64em) {
+            main {
+                width: 32em;
+                height: 32em;
+            }
+        }
+        @media only screen and (min-width: 80em) {
+            main {
+                width: 36em;
+                height: 36em;
+            }
+        }
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @-moz-keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @-ms-keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <body>
+        <main class="centered"><img src="./assets/logo.jpeg" alt="Batman logo" /></main>
+    </body>
 </html>
