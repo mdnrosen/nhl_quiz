@@ -90,9 +90,10 @@ function getLogo(abbrv, name){
             counter.innerText = `${guessed.length} / 32`
 
 
-            if (guessed.length === 32) {
+            if (guessed.length === 1) {
                 input.disabled = true
                 input.removeEventListener('keyup')
+                document.querySelectorAll('.cell').forEach(cell => classList.add('correct'))
                 window.alert('You win!')
             }
         }
